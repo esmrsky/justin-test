@@ -1,0 +1,65 @@
+---
+// Stats section for JUSTIN.
+---
+
+<section id="stats" class="bg-[#050505] border-y border-white/5" data-ps="src/components/home/Stats.astro:1">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/5" data-ps="src/components/home/Stats.astro:2">
+    <div class="p-12 text-center reveal-v2" data-ps="src/components/home/Stats.astro:3">
+      <div class="text-4xl font-extrabold text-white tracking-tighter mb-2" data-stat-target="1" data-ps="src/components/home/Stats.astro:4">TOP 1%</div>
+      <div class="overline-text text-[10px] text-neutral-500" data-ps="src/components/home/Stats.astro:5">NATIONAL PRODUCER</div>
+    </div>
+    <div class="p-12 text-center reveal-v2 reveal-delay-1" data-ps="src/components/home/Stats.astro:6">
+      <div class="text-4xl font-extrabold text-white tracking-tighter mb-2" data-stat-target="100" data-ps="src/components/home/Stats.astro:7">$100M+</div>
+      <div class="overline-text text-[10px] text-neutral-500" data-ps="src/components/home/Stats.astro:8">LIFETIME VOLUME SOLD</div>
+    </div>
+    <div class="p-12 text-center reveal-v2 reveal-delay-2" data-ps="src/components/home/Stats.astro:9">
+      <div class="text-4xl font-extrabold text-white tracking-tighter mb-2" data-stat-target="100" data-ps="src/components/home/Stats.astro:10">100K+</div>
+      <div class="overline-text text-[10px] text-neutral-500" data-ps="src/components/home/Stats.astro:11">MONTHLY CONTENT REACH</div>
+    </div>
+    <div class="p-12 text-center reveal-v2 reveal-delay-3" data-ps="src/components/home/Stats.astro:12">
+      <div class="text-4xl font-extrabold text-white tracking-tighter mb-2" data-stat-target="3" data-ps="src/components/home/Stats.astro:13">3+ YRS</div>
+      <div class="overline-text text-[10px] text-neutral-500" data-ps="src/components/home/Stats.astro:14">CONSECUTIVE TOP PERFORMER</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCounters() {
+    const stats = document.querySelectorAll('[data-stat-target]');
+    const duration = 1500;
+
+    stats.forEach(stat => {
+      const target = parseInt(stat.getAttribute('data-stat-target') || '0');
+      const suffix = stat.textContent?.includes('%') ? '%' : 
+                    stat.textContent?.includes('M') ? 'M+' : 
+                    stat.textContent?.includes('K') ? 'K+' : ' YRS';
+      const prefix = stat.textContent?.startsWith('$') ? '$' : '';
+      const start = 0;
+      let startTime: number | null = null;
+
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const easeOutExpo = 1 - Math.pow(2, -10 * progress);
+        const current = Math.floor(easeOutExpo * target);
+        
+        stat.textContent = `${prefix}${current}${suffix}`;
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          window.requestAnimationFrame(step);
+          observer.unobserve(stat);
+        }
+      }, { threshold: 0.5 });
+
+      observer.observe(stat);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', animateCounters);
+</script>

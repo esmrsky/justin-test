@@ -1,0 +1,90 @@
+---
+import { SITE } from '@/config/site';
+
+export interface Props {
+  logo?: string;
+}
+
+const { logo = SITE.name } = Astro.props;
+---
+
+<header id="navbar" class="sticky top-0 z-50 bg-[#050505] backdrop-blur-lg border-b border-white/10 transition-all duration-300" data-ps="src/components/Navigation.astro:1">
+  <nav class="py-4" data-ps="src/components/Navigation.astro:2">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center" data-ps="src/components/Navigation.astro:3">
+      <a href="/" class="text-2xl font-bold text-white tracking-tighter no-underline" data-ps="src/components/Navigation.astro:4">
+        {logo}
+      </a>
+
+      <div class="flex items-center gap-8" data-ps="src/components/Navigation.astro:5">
+        <div class="hidden md:flex gap-8 items-center" data-ps="src/components/Navigation.astro:6">
+          <a href="/#about" class="text-neutral-400 text-sm font-medium no-underline hover:text-white transition-colors" data-ps="src/components/Navigation.astro:7">About</a>
+          <a href="/#ventures" class="text-neutral-400 text-sm font-medium no-underline hover:text-white transition-colors" data-ps="src/components/Navigation.astro:8">Ventures</a>
+          <a href="/#timeline" class="text-neutral-400 text-sm font-medium no-underline hover:text-white transition-colors" data-ps="src/components/Navigation.astro:9">Timeline</a>
+          <a href="/#speaking" class="text-neutral-400 text-sm font-medium no-underline hover:text-white transition-colors" data-ps="src/components/Navigation.astro:10">Speaking</a>
+        </div>
+
+        <a href="/#speaking" class="hidden md:inline-block px-5 py-2.5 rounded bg-red-600 text-white text-sm font-bold hover:bg-red-700 transition-all active:scale-[0.98]" data-ps="src/components/Navigation.astro:11">
+          Book Justin
+        </a>
+
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="md:hidden p-2 text-white"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+         data-ps="src/components/Navigation.astro:12">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-[#050505] border-t border-white/10"
+    role="navigation"
+    aria-label="Mobile navigation"
+   data-ps="src/components/Navigation.astro:13">
+    <nav class="flex flex-col py-6 px-6 gap-4" data-ps="src/components/Navigation.astro:m59h36">
+      <a href="/#about" class="text-neutral-400 text-lg font-medium py-2 no-underline hover:text-white" data-ps="src/components/Navigation.astro:14">About</a>
+      <a href="/#ventures" class="text-neutral-400 text-lg font-medium py-2 no-underline hover:text-white" data-ps="src/components/Navigation.astro:15">Ventures</a>
+      <a href="/#timeline" class="text-neutral-400 text-lg font-medium py-2 no-underline hover:text-white" data-ps="src/components/Navigation.astro:16">Timeline</a>
+      <a href="/#speaking" class="text-neutral-400 text-lg font-medium py-2 no-underline hover:text-white" data-ps="src/components/Navigation.astro:17">Speaking</a>
+      <a href="/#speaking" class="mt-4 px-6 py-4 rounded bg-red-600 text-white text-center font-bold no-underline" data-ps="src/components/Navigation.astro:18">
+        Book Justin
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  function toggleMenu() {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    if (isOpen) {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      menuIconOpen?.classList.add('hidden');
+      menuIconClose?.classList.remove('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  mobileMenuButton?.addEventListener('click', toggleMenu);
+</script>

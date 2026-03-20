@@ -1,0 +1,39 @@
+---
+// Hero component for JUSTIN.
+---
+
+<section id="hero" class="min-h-[90vh] flex items-center bg-[#050505] pt-20 md:pt-0 overflow-hidden" data-ps="src/components/home/Hero.astro:1">
+  <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-ps="src/components/home/Hero.astro:2">
+    <div class="z-10" data-ps="src/components/home/Hero.astro:3">
+      <span class="overline-text inline-block mb-4 hero-animate" data-ps="src/components/home/Hero.astro:4">JUSTIN PHILLIPS</span>
+      <h1 class="text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-6 leading-[0.9] hero-animate hero-animate-delay-1" data-ps="src/components/home/Hero.astro:5">
+        Disrupt.<br/>Operate.<br/>Lead.
+      </h1>
+      <p class="text-xl text-neutral-400 mb-10 max-w-lg hero-animate hero-animate-delay-2" data-ps="src/components/home/Hero.astro:6">
+        Driving industry disruption with over $100 million in lifetime volume sold. Scaling businesses to 8-figures through relationship-first strategy and AI.
+      </p>
+      <div class="flex flex-wrap gap-4 hero-animate hero-animate-delay-3" data-ps="src/components/home/Hero.astro:7">
+        <a href="#speaking" class="px-8 py-4 rounded bg-red-600 text-white font-bold transition-all hover:bg-red-700 active:scale-[0.98]" data-ps="src/components/home/Hero.astro:8">
+          Book a Consultation
+        </a>
+        <a href="#about" class="px-8 py-4 rounded border border-white text-white font-bold transition-all hover:bg-white/10 active:scale-[0.98]" data-ps="src/components/home/Hero.astro:9">
+          Learn More
+        </a>
+      </div>
+    </div>
+    
+    <div class="relative md:h-[80vh] flex items-end justify-center hero-animate hero-animate-delay-1" data-ps="src/components/home/Hero.astro:10">
+      <img 
+        crossorigin="anonymous"
+        src="https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=1200&q=80" 
+        srcset="https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=320&q=80 320w, https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=480&q=80 480w, https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=640&q=80 640w, https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=768&q=80 768w, https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=1024&q=80 1024w, https://images.unsplash.com/photo-1618371690240-e0d46eead4b8?auto=format&w=1280&q=80 1280w"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        alt="Justin Phillips portrait" 
+        class="h-full w-auto object-contain object-bottom filter grayscale"
+        loading="eager"
+        fetchpriority="high"
+       data-ps="src/components/home/Hero.astro:11" />
+      <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent" data-ps="src/components/home/Hero.astro:12"></div>
+    </div>
+  </div>
+</section>

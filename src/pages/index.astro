@@ -1,0 +1,43 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/home/Hero.astro';
+import Stats from '@/components/home/Stats.astro';
+import Video from '@/components/home/Video.astro';
+import About from '@/components/home/About.astro';
+import Ventures from '@/components/home/Ventures.astro';
+import Timeline from '@/components/home/Timeline.astro';
+import Booking from '@/components/home/Booking.astro';
+---
+
+<BaseLayout
+  title={SITE.title}
+  description={SITE.description}
+  type="website"
+>
+  <Hero />
+  <Stats />
+  <video data-ps="src/pages/index.astro:xy21bg" />
+  <About />
+  <Ventures />
+  <Timeline />
+  <Booking />
+</BaseLayout>
+
+<script is:inline>
+  // Advanced Scroll Reveal
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-v2').forEach(el => observer.observe(el));
+</script>

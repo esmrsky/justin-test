@@ -1,0 +1,140 @@
+---
+// Speaking/Booking section for JUSTIN.
+---
+
+<section id="speaking" class="py-32 bg-[#050505]" data-ps="src/components/home/Booking.astro:1">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20" data-ps="src/components/home/Booking.astro:2">
+    <div class="reveal-v2 reveal-left" data-ps="src/components/home/Booking.astro:3">
+      <span class="overline-text mb-6 inline-block" data-ps="src/components/home/Booking.astro:4">BOOK JUSTIN</span>
+      <h2 class="text-5xl font-extrabold text-white tracking-tighter mb-12 leading-tight" data-ps="src/components/home/Booking.astro:5">
+        Keynote &<br/>Consulting Topics
+      </h2>
+      
+      <div class="space-y-12" data-ps="src/components/home/Booking.astro:6">
+        <div class="group" data-ps="src/components/home/Booking.astro:7">
+          <div class="text-red-600 font-mono text-xs mb-2" data-ps="src/components/home/Booking.astro:8">TOPIC 01</div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-ps="src/components/home/Booking.astro:9">Go-Giver Networking Strategy</h3>
+          <p class="text-neutral-400 leading-relaxed" data-ps="src/components/home/Booking.astro:10">The relationship-first framework that built a $100M+ pipeline from scratch. Master the art of high-value connection.</p>
+        </div>
+        
+        <div class="group" data-ps="src/components/home/Booking.astro:11">
+          <div class="text-red-600 font-mono text-xs mb-2" data-ps="src/components/home/Booking.astro:12">TOPIC 02</div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-ps="src/components/home/Booking.astro:13">Social Media & AI as a Megaphone</h3>
+          <p class="text-neutral-400 leading-relaxed" data-ps="src/components/home/Booking.astro:14">How to leverage emerging technology to amplify your reach, automate growth, and dominate your niche digitally.</p>
+        </div>
+        
+        <div class="group" data-ps="src/components/home/Booking.astro:15">
+          <div class="text-red-600 font-mono text-xs mb-2" data-ps="src/components/home/Booking.astro:16">TOPIC 03</div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-ps="src/components/home/Booking.astro:17">New Construction Market Disruption</h3>
+          <p class="text-neutral-400 leading-relaxed" data-ps="src/components/home/Booking.astro:18">Breaking into and dominating the new construction vertical. Playbooks for navigating complex developer relationships.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="reveal-v2 reveal-right" data-ps="src/components/home/Booking.astro:19">
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12" data-ps="src/components/home/Booking.astro:20">
+        <div id="booking-status" class="hidden mb-6 px-4 py-3 rounded bg-red-600/20 border border-red-600/30 text-red-600 text-sm" data-ps="src/components/home/Booking.astro:21"></div>
+        
+        <form id="booking-form" class="space-y-6" data-ps="src/components/home/Booking.astro:22">
+          <div data-ps="src/components/home/Booking.astro:23">
+            <label for="name" class="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3" data-ps="src/components/home/Booking.astro:24">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              class="w-full bg-white/5 border border-transparent rounded px-4 py-4 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 transition-all"
+              placeholder="John Doe"
+             data-ps="src/components/home/Booking.astro:25" />
+          </div>
+          
+          <div data-ps="src/components/home/Booking.astro:26">
+            <label for="email" class="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3" data-ps="src/components/home/Booking.astro:27">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full bg-white/5 border border-transparent rounded px-4 py-4 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 transition-all"
+              placeholder="john@example.com"
+             data-ps="src/components/home/Booking.astro:28" />
+          </div>
+          
+          <div data-ps="src/components/home/Booking.astro:29">
+            <label for="topic" class="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3" data-ps="src/components/home/Booking.astro:30">Interest Area</label>
+            <select 
+              id="topic" 
+              name="topic" 
+              class="w-full bg-white/5 border border-transparent rounded px-4 py-4 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 transition-all appearance-none"
+             data-ps="src/components/home/Booking.astro:31">
+              <option value="keynote" class="bg-neutral-900">Keynote Speaking</option>
+              <option value="consulting" class="bg-neutral-900">Business Consulting</option>
+              <option value="event" class="bg-neutral-900">Event Partnership</option>
+              <option value="other" class="bg-neutral-900">Other Inquiries</option>
+            </select>
+          </div>
+          
+          <div data-ps="src/components/home/Booking.astro:32">
+            <label for="message" class="block text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3" data-ps="src/components/home/Booking.astro:33">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              required
+              class="w-full bg-white/5 border border-transparent rounded px-4 py-4 text-white focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600/50 transition-all"
+              placeholder="Tell me about your project..."
+             data-ps="src/components/home/Booking.astro:34"></textarea>
+          </div>
+          
+          <button 
+            type="submit" 
+            id="submit-btn"
+            class="w-full bg-red-600 text-white py-5 rounded font-bold transition-all hover:bg-red-700 active:scale-[0.98]"
+           data-ps="src/components/home/Booking.astro:35">
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+  const status = document.getElementById('booking-status') as HTMLDivElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/psapi-internal-v1/forms/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        status.textContent = 'Thank you! Your request has been sent.';
+        status.classList.remove('hidden', 'bg-red-600/20', 'text-red-600');
+        status.classList.add('bg-green-600/20', 'text-green-500', 'border-green-600/30');
+        form.reset();
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.classList.remove('hidden');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Submit Request';
+    }
+  });
+</script>
